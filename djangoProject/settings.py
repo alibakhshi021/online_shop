@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django_render_partial',
     'django_extensions',
-    # 'jalali_date',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,11 @@ EMAIL_HOST_PASSWORD = 'rlkwgzxvnjxfhyip'
 
 ##Docker
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
