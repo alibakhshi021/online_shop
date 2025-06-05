@@ -1,0 +1,115 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+	<title>صفحه تماس ما | فروشگاه کالا مارک</title>
+{% endblock %}
+{% block content %}
+	<div id="contact-page" class="container">
+    	<div class="bg">
+	    	<div class="row">
+				<div class="container">
+	    			<div class="col-sm-12" style="overflow: hidden; margin-bottom: 40px">
+						<h2 class="title text-center">تمـاس با مـا</h2>
+					</div>
+				</div>
+				</div>
+    		<div class="row">
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">با ما در ارتباط باشیـد</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+				    	<form id="main-contact-form" class="contact-form row" action="{% url 'contact_module' %}" method="post">
+				            {% csrf_token %}
+
+{#                            {% for field in form %}#}
+{#                            	<div class="form-group col-md-12">#}
+{#                                     {{ field.errors }}#}
+{#                                     {{ field.label_tag }}#}
+{#                                     {{ field }}#}
+{#                                 </div>#}
+{#                            {% endfor %}#}
+{#                            <hr>#}
+
+                            <div class="form-group col-md-6">
+                                {{ form.email.errors }}
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                           </div>
+
+                            <div class="form-group col-md-6">
+                                {{ form.full_name.errors }}
+                                {{ form.full_name.label_tag }}
+                                {{ form.full_name }}
+                           </div>
+
+                            <div class="form-group col-md-12">
+                                {{ form.title.errors }}
+                                {{ form.title.label_tag }}
+                                {{ form.title }}
+                           </div>
+
+                            <div class="form-group col-md-12">
+                                {{ form.message.errors }}
+                                {{ form.message.label_tag }}
+                                {{ form.message }}
+                           </div>
+{#                            <div class="form-group col-md-6">#}
+{#				                <input type="text" name="name" class="form-control" placeholder="نام">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-6">#}
+{#				                <input type="email" name="email" class="form-control" placeholder="ایمیـل">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-12">#}
+{#				                <input type="text" name="subject" class="form-control" placeholder="موضـوع">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-12">#}
+{#				                <textarea name="message" id="message"  class="form-control" rows="8" placeholder="پیغـام شمـا"></textarea>#}
+{#				            </div>#}
+				            <div class="form-group col-md-12">
+{#				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">#}
+                                <button type="submit" class="btn btn-primary pull-right" >ارسال</button>
+				            </div>
+				        </form>
+	    			</div>
+	    		</div>
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">اطلاعات تماس</h2>
+	    				<address>
+	    					<p>{{ site_setting.site_name }}</p>
+							<p>آدرس: {{ site_setting.address }}</p>
+
+							<p>تلفن تماس : {{ site_setting.phone }}</p>
+							<p>فکس : {{ site_setting.fax }}</p>
+							<p style="font-family: tahoma;">ایمیـل : {{ site_setting.email }}</p>
+	    				</address>
+	    				<div class="social-networks">
+	    					<h2 class="title text-center">شبکـه های اجتـماعی</h2>
+							<span class="socials-share share">
+									<ul>
+										<a href="#">
+											<li>
+												<label>بلـه</label>
+												<img src="../../../static/images/product-details/Bale.png">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>سـروش</label>
+												<img src="../../../static/images/product-details/Soroush.png">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>اینستاگرام</label>
+												<img src="../../../static/images/product-details/Instagram.png">
+											</li>
+										</a>
+									</ul>
+								</span>
+	    				</div>
+	    			</div>
+    			</div>
+	    	</div>
+    	</div>
+    </div>
+{% endblock %}
