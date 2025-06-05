@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>معرفی پروژه Django</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.8;
+            direction: rtl;
+            background: #f9f9f9;
+            padding: 2rem;
+        }
+        pre {
+            background-color: #eee;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        code {
+            background: #e0e0e0;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        hr {
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📦 معرفی پروژه</h1>
+<p>
+این پروژه یک برنامه وب مبتنی بر <strong>Django</strong> است که با استفاده از <strong>Docker</strong> قابل اجرا در محیط‌های توسعه، تست و تولید می‌باشد. این پروژه شامل یک ماژول به نام <code>account_module</code> است که وظیفه مدیریت حساب‌های کاربری را دارد.
+</p>
+
+<hr>
+
+<h2>📁 ساختار پروژه</h2>
+<pre><code>.
+├── Dockerfile
+├── docker-compose.yml
+├── docker-compose-prod.yml
+├── docker-compose-test.yml
+├── requirements.txt
+└── account_module/
+    ├── admin.py
+    ├── apps.py
+    ├── formes.py
+    ├── models.py
+    ├── tests.py
+    ├── urls.py
+    ├── views.py
+    └── migrations/
+</code></pre>
+
+<hr>
+
+<h2>🚀 شروع به کار</h2>
+
+<h3>پیش‌نیازها</h3>
+<ul>
+<li>Python نسخه ۳.۱۰ یا بالاتر</li>
+<li>Docker و Docker Compose</li>
+<li>Git</li>
+</ul>
+
+<h3>نصب و اجرا</h3>
+<ol>
+<li>ابتدا مخزن پروژه را کلون کن:
+<pre><code>git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name</code></pre>
+</li>
+<li>اجرای کانتینرها با Docker:
+<pre><code>docker-compose up --build</code></pre>
+</li>
+<li>برنامه معمولاً از طریق آدرس زیر در دسترس خواهد بود:
+<pre><code>http://localhost:8000/</code></pre>
+</li>
+</ol>
+
+<hr>
+
+<h2>🧪 اجرای تست‌ها</h2>
+<p>برای اجرای تست‌ها از فایل <code>docker-compose-test.yml</code> استفاده کن:</p>
+<pre><code>docker-compose -f docker-compose-test.yml run web python manage.py test</code></pre>
+
+<hr>
+
+<h2>🛠 تکنولوژی‌های استفاده شده</h2>
+<ul>
+<li>Python</li>
+<li>Django</li>
+<li>Docker</li>
+<li>PostgreSQL (در صورت پیکربندی در docker-compose)</li>
+<li>Gunicorn (برای محیط production)</li>
+</ul>
+
+<hr>
+
+<h2>📂 ماژول‌ها</h2>
+<h3>account_module</h3>
+<p>مدیریت کاربران و عملیات احراز هویت.</p>
+
+<hr>
+
+<h2>✍️ نویسنده : علی بخشی</h2>
+<p>نام علی بخشی – <a href="https://github.com/alibakhshipy/online_shop.git">GitHub شما</a></p>
+
+</body>
+</html>
