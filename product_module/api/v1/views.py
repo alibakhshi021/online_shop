@@ -4,5 +4,10 @@ from rest_framework.response import Response
 
 @api_view()
 @permission_classes([AllowAny])
-def home_view(request):
+def product_view(request):
     return Response("ok")
+
+@api_view()
+@permission_classes([AllowAny])
+def detail_view(request, id):
+    return Response(id)
