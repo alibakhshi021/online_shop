@@ -1,20 +1,30 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from .serializers import Product_serializers
+from .serializers import ProductSerializers
 from ...models import Product
+from rest_framework import status
+from django.shortcuts import get_object_or_404
 
-@api_view()
+
+@api_view(["GET", "POST"])
 @permission_classes([AllowAny])
 def product_view(request):
-    return Response("ok")
+    if request.method == "GET":
+        products = Product.objects.filter(is_active=True)
+        serializer = ProductSerializers(products, many=True)
+        return Response(serializer.data)
+    
+    elif request.method == "POST":
+        serializer = ProductSerializers(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
 
 @api_view()
 @permission_classes([AllowAny])
 def detail_view(request, id):
-    try:
-        product = Product.objects.get(pk=id)
-        serializers = Product_serializers(product)
-        return Response(serializers.data)
-    except:
-        return Response("{'detail is not found'}", status=404)
+    product = get_object_or_404(Product,pk=id, is_active=True)
+    serializers = Product_serializers(product)
+    return Response(serializers.data)
