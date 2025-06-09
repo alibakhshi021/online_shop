@@ -46,23 +46,23 @@ class ProductList(APIView):
 
 
 
-@api_view(["GET", "PUT", "DELETE"])
-@permission_classes([AllowAny])
-def detail_view(request, id):
-    product = get_object_or_404(Product,pk=id, is_active=True)
-    if request.method == "GET":
-        serializer = ProductSerializers(product)
-        return Response(serializer.data)
+# @api_view(["GET", "PUT", "DELETE"])
+# @permission_classes([AllowAny])
+# def detail_view(request, id):
+#     product = get_object_or_404(Product,pk=id, is_active=True)
+#     if request.method == "GET":
+#         serializer = ProductSerializers(product)
+#         return Response(serializer.data)
     
-    elif request.method == "PUT":
-        serializer = ProductSerializers(product,data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
+#     elif request.method == "PUT":
+#         serializer = ProductSerializers(product,data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         return Response(serializer.data)
     
-    elif request.method == "DELETE":
-        product.delete()
-        return Response({"detail" : "item remove successfully"})
+#     elif request.method == "DELETE":
+#         product.delete()
+#         return Response({"detail" : "item remove successfully"})
 
 
 class ProductDetail(APIView):
