@@ -54,9 +54,9 @@ class Product(models.Model):
     is_delete = models.BooleanField(verbose_name='حذف شده / نشده')
 
     def get_absolute_url(self):
-        # return reverse('product-detail', kwargs={'slug': self.slug})
-        return reverse('product-details', kwargs={'slug': self.slug})
-
+        if self.slug:
+            return reverse('product-details', kwargs={'slug': self.slug})
+        return "#"
     def get_in_is_active(self):
         return 'موجود میباشد' if self.is_active else 'تمام شده'
 
