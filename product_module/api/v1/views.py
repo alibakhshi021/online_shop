@@ -6,99 +6,18 @@ from ...models import Product
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import mixins
 
-# @api_view(["GET", "POST"])
-# @permission_classes([IsAdminUser])
-# def product_view(request):
-#     if request.method == "GET":
-#         products = Product.objects.filter(is_active=True)
-#         serializer = ProductSerializers(products, many=True)
-#         return Response(serializer.data)
-    
-#     elif request.method == "POST":
-#         serializer = ProductSerializers(data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response(serializer.data)
-
-
-# @api_view(["GET", "PUT", "DELETE"])
-# @permission_classes([AllowAny])
-# def detail_view(request, id):
-#     product = get_object_or_404(Product,pk=id, is_active=True)
-#     if request.method == "GET":
-#         serializer = ProductSerializers(product)
-#         return Response(serializer.data)
-    
-#     elif request.method == "PUT":
-#         serializer = ProductSerializers(product,data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response(serializer.data)
-    
-#     elif request.method == "DELETE":
-#         product.delete()
-#         return Response({"detail" : "item remove successfully"})
-
-
-
-
-'''class ProductList(APIView):
-    """getting a list of post and creating new posts"""
-    permission_classes = [IsAuthenticated]
-    serializer_class = ProductSerializers
-
-    def get(self,request):
-        """retrieving a lis of posts"""
-        products = Product.objects.filter(is_active=True)
-        serializer = ProductSerializers(products, many=True)
-        return Response(serializer.data)
-    
-    def post(self, request):
-        """creating a post whit provided data"""
-        serializer = ProductSerializers(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)'''
-        
-
-class ProductList(GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+class ProductList(ListCreateAPIView):
     """getting a list of post and creating new posts"""
     permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializers
     queryset = Product.objects.filter(is_active=True)
 
-    def get(self, request, *args, **kwargs):
-        """retrieving a list of posts"""
-        return self.list(request, *args, **kwargs)
-    
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
 
-
-class ProductDetail(APIView):
+class ProductDetail(RetrieveUpdateDestroyAPIView):
     """getting of the posts and edit plus removing it"""
     permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializers
-
-    def get(self, request, id):
-        """removing posts data """
-        product = get_object_or_404(Product,pk=id, is_active=True)
-        serializer = self.serializer_class(product)
-        return Response(serializer.data)
-    
-    def put(self, request, id):
-        """editing the post data"""
-        product = get_object_or_404(Product,pk=id, is_active=True)
-        serializer = ProductSerializers(product,data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
-    
-    def delete(self, request, id):
-        """deleting the post object"""
-        product = get_object_or_404(Product, pk=id, status=True)
-        product.delete()
-        return Response({"detail" : "item remove successfully"}), status.HTTP_204_NO_CONTENT
+    queryset = Product.objects.filter(is_active=True)
