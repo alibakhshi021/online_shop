@@ -25,19 +25,9 @@ class ProductDetail(RetrieveUpdateDestroyAPIView):
 
 
 
-class ProductListView(viewsets.ViewSet):
+class ProductListView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_classes = ProductSerializers
     queryset = Product.objects.filter(is_active=True)
 
-    def list(self, request):
-        serializer = self.serializer_classes(self.queryset, many=True)
-        return Response(serializer.data)
-
-    def retrieve(self, request, pk=None):
-        product_object = get_object_or_404(self.queryset, pk=pk)
-        serializer = self.serializer_classes(product_object)
-        return Response(serializer.data)
-
-    def update(self, request):
-        pass    
+       
