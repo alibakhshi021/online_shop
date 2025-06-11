@@ -38,4 +38,6 @@ class ProductListView(viewsets.ViewSet):
         product_object = get_object_or_404(self.queryset, pk=pk)
         serializer = self.serializer_classes(product_object)
         return Response(serializer.data)
-        
+
+    def update(self, request):
+        pass    
