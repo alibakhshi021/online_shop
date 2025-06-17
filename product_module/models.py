@@ -69,6 +69,14 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.title} ({self.price})"
 
+    ## API Serializers
+    def snippet(self):
+        return self.slug
+
+    def get_absolute_api_url(self):
+        return reverse("product:api-v1:post-detail", kwargs={"pk": self.pk})
+        
+
     class Meta:
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'

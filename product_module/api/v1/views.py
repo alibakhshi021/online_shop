@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.response import Response
-from .serializers import ProductSerializers
-from ...models import Product
+from .serializers import ProductSerializers, CategorySerializer
+from ...models import Product, ProductCategory
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -10,11 +10,11 @@ from rest_framework.generics import GenericAPIView, ListCreateAPIView, RetrieveU
 from rest_framework import mixins
 from rest_framework import viewsets
 
-class ProductList(ListCreateAPIView):
-    """getting a list of post and creating new posts"""
-    permission_classes = [IsAuthenticated]
-    serializer_class = ProductSerializers
-    queryset = Product.objects.filter(is_active=True)
+# class ProductList(ListCreateAPIView):
+#     """getting a list of post and creating new posts"""
+#     permission_classes = [IsAuthenticated]
+#     serializer_class = ProductSerializers
+#     queryset = Product.objects.filter(is_active=True)
 
 
 class ProductDetail(RetrieveUpdateDestroyAPIView):
@@ -25,9 +25,13 @@ class ProductDetail(RetrieveUpdateDestroyAPIView):
 
 
 
-class ProductListView(viewsets.ModelViewSet):
+class ProductModelViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_classes = ProductSerializers
+    serializer_class = ProductSerializers
     queryset = Product.objects.filter(is_active=True)
 
-       
+
+class CategoryModelViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = CategorySerializer
+    queryset = ProductCategory.objects.filter(is_active=True)       

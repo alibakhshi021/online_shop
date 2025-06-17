@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework.documentation import include_docs_urls
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
 urlpatterns = [
     path('', include('home_module.urls')),
     path('', include('account_module.urls')),
@@ -28,5 +31,6 @@ urlpatterns = [
     path('user/', include('user_panel_module.urls')),
     path('order/', include('order_module.urls')),
     path('admin/', admin.site.urls),
+    # path('api-docs/', include_docs_urls(title='api docs URL')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
