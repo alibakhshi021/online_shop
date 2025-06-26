@@ -95,7 +95,7 @@
                     <div class="mainmenu pull-right">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="{% url 'index_page' %}" class="{% if request.resolver_match.url_name == 'index_page' %}active{% endif %}">خـانه</a></li>
-                            <li><a href="{% url 'product-list' %}" class="{% if request.resolver_match.url_name == 'product-list' %}active{% endif %}">محصولات</a></li>
+                            <li><a href="{% url 'product:product-list' %}" class="{% if request.resolver_match.namespace == 'product' and request.resolver_match.url_name == 'product-list' %}active{% endif %}">محصولات</a></li>
                             <li><a href="{% url 'article_list' %}" class="{% if request.resolver_match.url_name == 'article_list' %}active{% endif %}">مقالات</a></li>
                             <li><a href="{% url 'about_page' %}" class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}">درباره مـا</a></li>
                         

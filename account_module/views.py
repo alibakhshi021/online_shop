@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.views import View
-from .models import User  # فرض بر این است که مدل کاربر شما در اینجا ایمپورت شده است
+from .models import User
 from django.utils.crypto import get_random_string
 from django.http import Http404, HttpRequest
 from django.contrib.auth import login, logout

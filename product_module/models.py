@@ -56,7 +56,7 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         if self.slug:
-            return reverse('product-details', kwargs={'slug': self.slug})
+            return reverse('product:product-details', kwargs={'slug': self.slug})
         return "#"
     def get_in_is_active(self):
         return 'موجود میباشد' if self.is_active else 'تمام شده'

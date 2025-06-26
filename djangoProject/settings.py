@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'django_extensions',
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
     'drf_yasg',
 ]
@@ -159,10 +160,14 @@ EMAIL_HOST_PASSWORD = 'rlkwgzxvnjxfhyip'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        
     ],
     
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
