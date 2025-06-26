@@ -52,6 +52,7 @@ class Product(models.Model):
                             verbose_name='عنوان در url')
     is_active = models.BooleanField(verbose_name='فعال / غیرفعال')
     is_delete = models.BooleanField(verbose_name='حذف شده / نشده')
+    
 
     def get_absolute_url(self):
         if self.slug:
