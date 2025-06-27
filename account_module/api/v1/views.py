@@ -48,8 +48,14 @@ class LoginAPIView(APIView):
             return Response({'error': 'Invalid credentials'}, status=401)
 
         token, _ = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key})
+    
 
+        return Response({
+            'token': token.key,
+            'user_id': user.id,
+            'email': user.email,
+
+        })
 
 class LogoutAPIView(APIView):
     permission_classes = [IsAuthenticated]
