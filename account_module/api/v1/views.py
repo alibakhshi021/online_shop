@@ -1,5 +1,5 @@
 from rest_framework import generics
-from .serializers import RegistrationSerializer, LoginSerializer
+from .serializers import RegistrationSerializer, LoginSerializer, CustomTokenObtainPairSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from ...models import User
@@ -11,7 +11,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 #Registration
@@ -64,3 +64,7 @@ class LogoutAPIView(APIView):
     def post(self, request):
         request.user.auth_token.delete()
         return Response({'detail': 'Logged out successfully.'}, status=200)
+    
+# create JWT 
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer

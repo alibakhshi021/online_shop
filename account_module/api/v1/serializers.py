@@ -7,6 +7,7 @@ import string
 from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -47,39 +48,9 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
 
 
-
-# class LoginSerializer(serializers.Serializer):
-#     email = serializers.EmailField(
-#         label=_("Email"),
-#         write_only=True
-#     )
-#     password = serializers.CharField(
-#         label=_("Password"),
-#         style={'input_type': 'password'},
-#         trim_whitespace=False,
-#         write_only=True
-#     )
-#     token = serializers.CharField(read_only=True)
-#     # user_id = serializers.IntegerField(read_only=True)
-#     user_email = serializers.EmailField(read_only=True)
-
-#     def validate(self, attrs):
-#         email = attrs.get('email')
-#         password = attrs.get('password')
-
-#         if email and password:
-#             user = authenticate(request=self.context.get('request'),
-#                                 username=email, password=password)
-#             if not user:
-#                 raise serializers.ValidationError(
-#                     {'detail': 'Invalid email or password.'},
-#                     code='authorization'
-#                 )
-#         else:
-#             raise serializers.ValidationError(
-#                 {'detail': 'Both email and password are required.'},
-#                 code='authorization'
-#             )
-
-#         attrs['user'] = user
-#         return attrs
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        validated_date = super().validate(attrs)
+        validated_date["email"] = self.user.email
+        validated_date["user_id"] = self.user.pk
+        return validated_date
