@@ -14,7 +14,7 @@ from drf_yasg import openapi
 
 
 
-
+#Registration
 class RegistrationApiView(generics.GenericAPIView):
     serializer_class = RegistrationSerializer
     queryset = User.objects.all()
@@ -29,7 +29,7 @@ class RegistrationApiView(generics.GenericAPIView):
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
+#Login
 User = get_user_model()
 class LoginAPIView(APIView):
     @swagger_auto_schema(request_body=LoginSerializer)
@@ -57,6 +57,7 @@ class LoginAPIView(APIView):
 
         })
 
+#logout
 class LogoutAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
