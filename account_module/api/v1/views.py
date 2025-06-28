@@ -1,8 +1,10 @@
 from rest_framework import generics
-from .serializers import RegistrationSerializer, LoginSerializer, CustomTokenObtainPairSerializer,ChangePassApiSerializer
+from .serializers import (RegistrationSerializer, LoginSerializer,
+                        CustomTokenObtainPairSerializer,ChangePassApiSerializer,
+                        ProfileApiSerializer)
 from rest_framework.response import Response
 from rest_framework import status
-from ...models import User
+from ...models import User, Profile
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
@@ -12,7 +14,7 @@ from django.contrib.auth import get_user_model, authenticate
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenObtainPairView
-
+from django.shortcuts import get_object_or_404
 
 #Registration
 class RegistrationApiView(generics.GenericAPIView):
@@ -93,3 +95,11 @@ class ChangePassApiView(generics.GenericAPIView):
                             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
+class ProfileApiView(generics.RetrieveAPIView):
+    serializer_class = ProfileApiSerializer
+    queryset = Profile.objects.all()
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        obj = get_object_or_404(queryset, user=self.request.user)
+        return obj

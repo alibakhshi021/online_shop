@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ...models import User
+from ...models import User, Profile
 from django.contrib.auth.password_validation import validate_password
 from django.core import exceptions
 import random
@@ -70,3 +70,10 @@ class ChangePassApiSerializer(serializers.Serializer):
         except exceptions.ValidationError as e:
             raise serializers.ValidationError({'new_password': list(e.messages)}) 
         return super().validate(attrs)
+    
+
+class ProfileApiSerializer(serializers.ModelSerializer):
+    email = serializers.CharField(source='user.email')
+    class Meta:
+        model = Profile
+        fields = ['id','user', 'first_name', 'last_name', 'description', 'email']
