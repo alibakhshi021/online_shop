@@ -95,7 +95,7 @@ class ChangePassApiView(generics.GenericAPIView):
                             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
-class ProfileApiView(generics.RetrieveAPIView):
+class ProfileApiView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileApiSerializer
     queryset = Profile.objects.all()
 

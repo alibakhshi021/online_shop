@@ -73,7 +73,8 @@ class ChangePassApiSerializer(serializers.Serializer):
     
 
 class ProfileApiSerializer(serializers.ModelSerializer):
-    email = serializers.CharField(source='user.email')
+    email = serializers.CharField(source='user.email', read_only=True)
     class Meta:
         model = Profile
         fields = ['id','user', 'first_name', 'last_name', 'description', 'email']
+        read_only_fields = ['email']
