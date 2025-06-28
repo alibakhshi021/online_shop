@@ -54,3 +54,19 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         validated_date["email"] = self.user.email
         validated_date["user_id"] = self.user.pk
         return validated_date
+    
+class ChangePassApiSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)    
+    new_password = serializers.CharField(required=True)    
+    confirm_password = serializers.CharField(required=True)    
+
+    def validate(self, attrs):
+        if attrs.get('new_password') != attrs.get('confirm_password'):
+            raise serializers.ValidationError({'detail': 'password dos not match '})
+        
+        try:
+            validate_password(attrs.get('new_password'))
+
+        except exceptions.ValidationError as e:
+            raise serializers.ValidationError({'new_password': list(e.messages)}) 
+        return super().validate(attrs)
