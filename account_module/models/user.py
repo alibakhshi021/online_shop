@@ -20,17 +20,3 @@ class User(AbstractUser):
         if self.first_name and self.last_name:
             return self.get_full_name()
         return self.email
-
-#Model Api TEST
-class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=200)    
-    last_name = models.CharField(max_length=200)
-    image = models.ImageField(blank=True, null=True)
-    description = models.TextField()
-
-    created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)   
-
-    def __str__(self):
-        return self.user.email
