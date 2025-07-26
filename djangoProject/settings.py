@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'drf_yasg',
+    'mail_templated',
 ]
 
 MIDDLEWARE = [
@@ -150,13 +151,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_CHARSET = 'utf-8'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'electricalapplianceir@gmail.com'
-EMAIL_HOST_PASSWORD = 'rlkwgzxvnjxfhyip'
-
 ##Docker
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -176,3 +170,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 2
 }
+
+#ُsend email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp4dev'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = '' 
+EMAIL_PORT = 25

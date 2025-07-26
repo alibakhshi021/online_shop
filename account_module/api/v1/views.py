@@ -15,6 +15,9 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.shortcuts import get_object_or_404
+# from django.core.mail import send_mail
+from mail_templated import send_mail, EmailMessage
+
 
 #Registration
 class RegistrationApiView(generics.GenericAPIView):
@@ -103,3 +106,10 @@ class ProfileApiView(generics.RetrieveUpdateDestroyAPIView):
         queryset = self.get_queryset()
         obj = get_object_or_404(queryset, user=self.request.user)
         return obj
+    
+
+class TestEmailView(generics.GenericAPIView):
+    def get(self, request, *args, **kwargs):
+        message = EmailMessage('email/hello.tpl', {'name': 'ali'}, 'admin@admin.com', to=['nima.davari021@gmail.com'])
+        message.send()
+        return Response('Test-Email')    

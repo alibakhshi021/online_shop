@@ -10,6 +10,7 @@ class User(AbstractUser):
     about_name = models.TextField(blank=True, null=True, verbose_name='اطلاعات شخص')
     address = models.TextField(null=True, blank=True, verbose_name='آدرس')
     email = models.EmailField(max_length=100, unique=True)
+    is_verified = models.BooleanField(default=False)
     # password = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
