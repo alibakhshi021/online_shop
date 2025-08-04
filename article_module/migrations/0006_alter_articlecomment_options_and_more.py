@@ -8,18 +8,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('article_module', '0005_articlecomment'),
+        ("article_module", "0005_articlecomment"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='articlecomment',
-            options={'verbose_name': 'نظر مقاله', 'verbose_name_plural': 'نظرات مقالات'},
+            name="articlecomment",
+            options={
+                "verbose_name": "نظر مقاله",
+                "verbose_name_plural": "نظرات مقالات",
+            },
         ),
         migrations.AlterField(
-            model_name='articlecomment',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='کاربر'),
+            model_name="articlecomment",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="کاربر",
+            ),
         ),
     ]

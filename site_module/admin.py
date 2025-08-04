@@ -3,13 +3,16 @@ from . import models
 
 
 class FooterLinkAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url']
+    list_display = ["title", "url"]
+
 
 class SliderAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url', 'is_active']
-    list_editable = ['is_active', 'url']
+    list_display = ["title", "url", "is_active"]
+    list_editable = ["is_active", "url"]
+
+
 class SiteBannerAdmin(admin.ModelAdmin):
-    list_display = ['title', 'url', 'position']
+    list_display = ["title", "url", "position"]
 
 
 admin.site.register(models.SiteSetting)

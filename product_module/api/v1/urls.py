@@ -3,17 +3,17 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('post', views.ProductModelViewSet, basename='post')
-router.register('category', views.CategoryModelViewSet, basename='category')
+router.register("post", views.ProductModelViewSet, basename="post")
+router.register("category", views.CategoryModelViewSet, basename="category")
 urlpatterns = router.urls
 
 
-app_name= 'api-v1'
+app_name = "api-v1"
 
 # urlpatterns = [
 #     # path('post/', views.ProductList.as_view(), name='product_list_api'),
 #     # path('post/<int:pk>/', views.ProductDetail.as_view(), name='product_detail_api'),
 #     path('post/', views.ProductListView.as_view({'get':'list'}), name='product_list'),
 #     path('post/<int:pk>/', views.ProductListView.as_view({'get':'retrieve'}), name='product_detail'),
-    
+
 # ]

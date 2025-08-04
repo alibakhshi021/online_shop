@@ -7,28 +7,64 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='SiteSetting',
+            name="SiteSetting",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('site_name', models.CharField(max_length=100, verbose_name='نام سایت')),
-                ('site_url', models.CharField(max_length=100, verbose_name='دامنه سایت')),
-                ('address', models.CharField(max_length=100, verbose_name='آدرس سایت')),
-                ('phone', models.CharField(max_length=100, null=True, verbose_name='تلفن سایت')),
-                ('fax', models.CharField(max_length=100, null=True, verbose_name='فکس سایت')),
-                ('email', models.CharField(max_length=100, null=True, verbose_name='ایمیل سایت')),
-                ('copy_right', models.CharField(max_length=100, verbose_name='متن کپی رایت سایت')),
-                ('about_us_text', models.TextField(verbose_name='متن درباره ما سایت')),
-                ('site_logo', models.ImageField(upload_to='images/site_setting/', verbose_name='لوگو سایت')),
-                ('is_main_setting', models.BooleanField(verbose_name='تنظیمات اصلی')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "site_name",
+                    models.CharField(max_length=100, verbose_name="نام سایت"),
+                ),
+                (
+                    "site_url",
+                    models.CharField(max_length=100, verbose_name="دامنه سایت"),
+                ),
+                ("address", models.CharField(max_length=100, verbose_name="آدرس سایت")),
+                (
+                    "phone",
+                    models.CharField(
+                        max_length=100, null=True, verbose_name="تلفن سایت"
+                    ),
+                ),
+                (
+                    "fax",
+                    models.CharField(
+                        max_length=100, null=True, verbose_name="فکس سایت"
+                    ),
+                ),
+                (
+                    "email",
+                    models.CharField(
+                        max_length=100, null=True, verbose_name="ایمیل سایت"
+                    ),
+                ),
+                (
+                    "copy_right",
+                    models.CharField(max_length=100, verbose_name="متن کپی رایت سایت"),
+                ),
+                ("about_us_text", models.TextField(verbose_name="متن درباره ما سایت")),
+                (
+                    "site_logo",
+                    models.ImageField(
+                        upload_to="images/site_setting/", verbose_name="لوگو سایت"
+                    ),
+                ),
+                ("is_main_setting", models.BooleanField(verbose_name="تنظیمات اصلی")),
             ],
             options={
-                'verbose_name': 'نظیمات سایت',
-                'verbose_name_plural': 'تنظیمات',
+                "verbose_name": "نظیمات سایت",
+                "verbose_name_plural": "تنظیمات",
             },
         ),
     ]

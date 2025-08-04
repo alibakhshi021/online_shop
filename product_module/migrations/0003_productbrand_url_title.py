@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product_module', '0002_productcategory_parent'),
+        ("product_module", "0002_productcategory_parent"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='productbrand',
-            name='url_title',
-            field=models.CharField(db_index=True, default=True, max_length=300, verbose_name='عنوان در url'),
+            model_name="productbrand",
+            name="url_title",
+            field=models.CharField(
+                db_index=True, default=True, max_length=300, verbose_name="عنوان در url"
+            ),
         ),
     ]

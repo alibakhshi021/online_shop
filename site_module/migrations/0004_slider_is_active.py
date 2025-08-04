@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('site_module', '0003_slider_alter_footerlink_footer_link_box'),
+        ("site_module", "0003_slider_alter_footerlink_footer_link_box"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='slider',
-            name='is_active',
-            field=models.BooleanField(default=True, verbose_name='فعال | غیر فعال'),
+            model_name="slider",
+            name="is_active",
+            field=models.BooleanField(default=True, verbose_name="فعال | غیر فعال"),
         ),
     ]

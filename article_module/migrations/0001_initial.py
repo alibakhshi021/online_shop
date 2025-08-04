@@ -8,22 +8,47 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ArticleCategory',
+            name="ArticleCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, verbose_name='عنوان دسته بندی')),
-                ('url_title', models.CharField(max_length=100, verbose_name='عنوان url')),
-                ('is_active', models.BooleanField(default=True, verbose_name='فعال|غیر فعال')),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='article_module.articlecategory', verbose_name='والد محصولات')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=100, verbose_name="عنوان دسته بندی"),
+                ),
+                (
+                    "url_title",
+                    models.CharField(max_length=100, verbose_name="عنوان url"),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(default=True, verbose_name="فعال|غیر فعال"),
+                ),
+                (
+                    "parent",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="article_module.articlecategory",
+                        verbose_name="والد محصولات",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'دسته بندی مقاله',
-                'verbose_name_plural': 'دسته بندی های مقاله',
+                "verbose_name": "دسته بندی مقاله",
+                "verbose_name_plural": "دسته بندی های مقاله",
             },
         ),
     ]
