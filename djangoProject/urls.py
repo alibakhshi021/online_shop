@@ -19,9 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from rest_framework.documentation import include_docs_urls
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from rest_framework.authtoken.views import obtain_auth_token
 
 # swagger
 from rest_framework import permissions
@@ -43,7 +40,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("", include("home_module.urls")),
-    # path('', include('account_module.urls')),
     path("api-auth/", include("rest_framework.urls")),
     path("accounts/", include("account_module.urls")),
     path("contact-us/", include("contact_module.urls")),
@@ -52,8 +48,8 @@ urlpatterns = [
     path("user/", include("user_panel_module.urls")),
     path("order/", include("order_module.urls")),
     path("admin/", admin.site.urls),
-    # path('api-docs/', include_docs_urls(title='api docs URL')),
-    ######swagger
+
+    # swagger
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

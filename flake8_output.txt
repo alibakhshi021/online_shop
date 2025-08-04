@@ -1,0 +1,110 @@
+./account_module/api/v1/serializers.py:7:1: F401 'django.contrib.auth.authenticate' imported but unused
+./account_module/api/v1/serializers.py:8:1: F401 'django.utils.translation.gettext_lazy as _' imported but unused
+./account_module/api/v1/serializers.py:9:1: F811 redefinition of unused 'serializers' from line 1
+./account_module/api/v1/urls.py:1:1: F401 'django.urls.include' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.RegistrationApiView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.CustomTokenObtainPairView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.ChangePassApiView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.ProfileApiView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.TestEmailView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.ActivationApiView' imported but unused
+./account_module/api/v1/urls.py:3:1: F401 '.views.ActivationResendApiView' imported but unused
+./account_module/api/v1/urls.py:14:1: F401 'rest_framework_simplejwt.views.TokenObtainPairView' imported but unused
+./account_module/api/v1/views.py:5:1: F401 'rest_framework.authtoken.views.ObtainAuthToken' imported but unused
+./account_module/api/v1/views.py:9:1: F401 'rest_framework.permissions.AllowAny' imported but unused
+./account_module/api/v1/views.py:10:1: F811 redefinition of unused 'authenticate' from line 8
+./account_module/api/v1/views.py:10:1: F401 'django.contrib.auth.authenticate' imported but unused
+./account_module/api/v1/views.py:12:1: F401 'drf_yasg.openapi' imported but unused
+./account_module/api/v1/views.py:17:1: F401 'mail_templated.send_mail' imported but unused
+./account_module/api/v1/views.py:20:1: F401 'jwt.exceptions.ExpiredSignatureError' imported but unused
+./account_module/api/v1/views.py:20:1: F401 'jwt.exceptions.InvalidSignatureError' imported but unused
+./account_module/models/__init__.py:1:1: F403 'from .user import *' used; unable to detect undefined names
+./account_module/models/__init__.py:1:1: F401 '.user.*' imported but unused
+./account_module/models/__init__.py:2:1: F403 'from .profiles import *' used; unable to detect undefined names
+./account_module/models/__init__.py:2:1: F401 '.profiles.*' imported but unused
+./account_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./account_module/views.py:2:1: F401 'django.contrib.auth.get_user_model' imported but unused
+./article_module/admin.py:5:1: F401 'article_module.models.ArticleComment' imported but unused
+./article_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./article_module/views.py:1:1: F401 'django.http.request' imported but unused
+./article_module/views.py:4:1: F401 'django.views.generic.list.View' imported but unused
+./article_module/views.py:5:1: F401 'jalali_date.datetime2jalali' imported but unused
+./article_module/views.py:5:1: F401 'jalali_date.date2jalali' imported but unused
+./article_module/views.py:57:34: F811 redefinition of unused 'request' from line 1
+./article_module/views.py:69:25: F811 redefinition of unused 'request' from line 1
+./contact_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./contact_module/views.py:3:1: F401 'django.views.generic.edit.FormView' imported but unused
+./contact_module/views.py:6:1: F811 redefinition of unused 'ContactUs' from line 2
+./contact_module/views.py:6:1: F401 '.models.ContactUs' imported but unused
+./djangoProject/settings.py:153:1: E265 block comment should start with '# '
+./djangoProject/urls.py:22:1: F401 'rest_framework.documentation.include_docs_urls' imported but unused
+./djangoProject/urls.py:23:1: F401 'drf_spectacular.views.SpectacularAPIView' imported but unused
+./djangoProject/urls.py:23:1: F401 'drf_spectacular.views.SpectacularSwaggerView' imported but unused
+./djangoProject/urls.py:24:1: F401 'rest_framework.authtoken.views.obtain_auth_token' imported but unused
+./djangoProject/urls.py:56:5: E265 block comment should start with '# '
+./home_module/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./home_module/models.py:1:1: F401 'django.db.models' imported but unused
+./home_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./home_module/urls.py:1:1: F401 'django.urls.include' imported but unused
+./home_module/views.py:5:1: F401 'django.views.View' imported but unused
+./home_module/views.py:45:36: E262 inline comment should start with '# '
+./order_module/admin.py:2:1: F401 'django.contrib.admin.site' imported but unused
+./order_module/admin.py:5:1: F401 'order_module.models.Order' imported but unused
+./order_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./order_module/urls.py:1:1: F401 'django.urls.include' imported but unused
+./order_module/views.py:161:13: F841 local variable 'e_code' is assigned to but never used
+./pools/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./pools/models.py:1:1: F401 'django.db.models' imported but unused
+./pools/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./pools/views.py:1:1: F401 'django.shortcuts.render' imported but unused
+./product_module/api/v1/urls.py:1:1: F401 'django.urls.path' imported but unused
+./product_module/api/v1/views.py:1:1: F401 'rest_framework.decorators.api_view' imported but unused
+./product_module/api/v1/views.py:1:1: F401 'rest_framework.decorators.permission_classes' imported but unused
+./product_module/api/v1/views.py:2:1: F401 'rest_framework.permissions.IsAuthenticated' imported but unused
+./product_module/api/v1/views.py:2:1: F401 'rest_framework.permissions.IsAuthenticatedOrReadOnly' imported but unused
+./product_module/api/v1/views.py:2:1: F401 'rest_framework.permissions.IsAdminUser' imported but unused
+./product_module/api/v1/views.py:8:1: F401 'rest_framework.response.Response' imported but unused
+./product_module/api/v1/views.py:11:1: F401 'rest_framework.status' imported but unused
+./product_module/api/v1/views.py:12:1: F401 'django.shortcuts.get_object_or_404' imported but unused
+./product_module/api/v1/views.py:13:1: F401 'rest_framework.views.APIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.GenericAPIView' imported but unused
+./product_module/api/v1/views.py:11:1: F401 'rest_framework.status' imported but unused
+./product_module/api/v1/views.py:12:1: F401 'django.shortcuts.get_object_or_404' imported but unused
+./product_module/api/v1/views.py:13:1: F401 'rest_framework.views.APIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.GenericAPIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.ListCreateAPIView' imported but unused
+./product_module/api/v1/views.py:12:1: F401 'django.shortcuts.get_object_or_404' imported but unused
+./product_module/api/v1/views.py:13:1: F401 'rest_framework.views.APIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.GenericAPIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.ListCreateAPIView' imported but unused
+./product_module/api/v1/views.py:13:1: F401 'rest_framework.views.APIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.GenericAPIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.ListCreateAPIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.RetrieveUpdateDestroyAPIView' imported but unused
+./product_module/api/v1/views.py:19:1: F401 'rest_framework.mixins' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.ListCreateAPIView' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.RetrieveUpdateDestroyAPIView' imported but unused
+./product_module/api/v1/views.py:19:1: F401 'rest_framework.mixins' imported but unused
+./product_module/api/v1/views.py:14:1: F401 'rest_framework.generics.RetrieveUpdateDestroyAPIView' imported but unused
+./product_module/api/v1/views.py:19:1: F401 'rest_framework.mixins' imported but unused
+./product_module/api/v1/views.py:41:5: F811 redefinition of unused 'permission_classes' from line 1
+./product_module/api/v1/views.py:41:5: F811 redefinition of unused 'permission_classes' from line 1
+./product_module/api/v1/views.py:56:5: F811 redefinition of unused 'permission_classes' from line 1
+./product_module/models.py:99:5: E266 too many leading '#' for block comment
+./product_module/models.py:99:5: E266 too many leading '#' for block comment
+./product_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./product_module/views.py:1:1: F401 'itertools.product' imported but unused
+./product_module/views.py:4:1: F401 'django.shortcuts.get_object_or_404' imported but unused
+./product_module/views.py:5:1: F401 'django.views.generic.base.TemplateView' imported but unused
+./product_module/views.py:31:9: F811 redefinition of unused 'product' from line 1
+./product_module/views.py:46:9: F841 local variable 'request' is assigned to but never used
+./product_module/views.py:108:9: F811 redefinition of unused 'product' from line 1
+./site_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./site_module/views.py:1:1: F401 'django.shortcuts.render' imported but unused
+./user_panel_module/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./user_panel_module/models.py:1:1: F401 'django.db.models' imported but unused
+./user_panel_module/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./user_panel_module/urls.py:1:1: F401 'django.urls.include' imported but unused
+./user_panel_module/views.py:7:1: F401 'django.shortcuts.get_object_or_404' imported but unused
+./utils/conventors.py:4:42: E203 whitespace before ':'
+./utils/email_service.py:13:5: E722 do not use bare 'except'

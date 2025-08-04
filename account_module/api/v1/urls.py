@@ -1,18 +1,10 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 from .views import (
-    RegistrationApiView,
     LoginAPIView,
     LogoutAPIView,
-    CustomTokenObtainPairView,
-    ChangePassApiView,
-    ProfileApiView,
-    TestEmailView,
-    ActivationApiView,
-    ActivationResendApiView,
 )
 from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
     TokenRefreshView,
     TokenVerifyView,
 )

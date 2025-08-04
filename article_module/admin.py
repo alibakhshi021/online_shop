@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.http import HttpRequest
-
 from article_module import models
-from article_module.models import Article, ArticleComment
+from article_module.models import Article
 
 
 class ArticleAdmin(admin.ModelAdmin):

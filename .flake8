@@ -1,1 +1,4 @@
-exclude = venv, .venv, __pycache__, migrations, max-line-length = 120  
+[flake8]
+max-line-length = 88
+exclude = venv, .venv, pycache, migrations, setting.py, __init__.py, git, .pot, .py[co], test.py, tests.py
+ignore = E501

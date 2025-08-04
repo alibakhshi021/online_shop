@@ -158,7 +158,7 @@ def verify_payment(request: HttpRequest):
                     {"error": str(req.json()["data"]["message"])},
                 )
         else:
-            e_code = req.json()["errors"]["code"]
+            # e_code = req.json()["errors"]["code"]
             e_message = req.json()["errors"]["message"]
             # return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
             return render(

@@ -2,7 +2,6 @@ from django.db.models import Count
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from product_module.models import Product, ProductCategory
-from django.views import View
 from site_module.models import SiteSetting, FooterLinkBox, Slider
 from utils.conventors import group_list
 
@@ -42,7 +41,7 @@ class HomeView(TemplateView):
         return context
 
 
-def site_header_partial(request):  ## با این اپلیکیشن میتونیم هدر رو اضافه بکنیم
+def site_header_partial(request):
     setting: SiteSetting = SiteSetting.objects.filter(is_main_setting=True).first()
     return render(request, "shared/site_header_partial.html", {"setting": setting})
 

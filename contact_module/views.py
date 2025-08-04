@@ -1,9 +1,9 @@
 from site_module.models import SiteSetting
-from .formes import ContactUsModelForm, ContactUs
-from django.views.generic.edit import FormView, CreateView
+from .formes import ContactUsModelForm
+from django.views.generic.edit import CreateView
 from django.views.generic import ListView
 
-from .models import ContactUs, UserProfile
+from .models import UserProfile
 
 
 class ContactUsView(CreateView):

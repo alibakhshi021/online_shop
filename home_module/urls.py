@@ -1,5 +1,6 @@
-from django.urls import include, path
+from django.urls import path
 from . import views
+# app_name = "index_page"
 
 urlpatterns = [
     path("", views.HomeView.as_view(), name="index_page"),

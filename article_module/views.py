@@ -1,16 +1,8 @@
-from django.http import request, HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import DetailView
-from django.views.generic.list import View, ListView
-from jalali_date import datetime2jalali, date2jalali
-
+from django.views.generic.list import ListView
 from article_module.models import Article, ArticleCategory, ArticleComment
-
-
-# class ArticleView(View):
-#     def get(self, request, *args, **kwargs):
-#         context = {}
-#         return render(request, 'article_module/article.html', context)
 
 
 class ArticleListView(ListView):

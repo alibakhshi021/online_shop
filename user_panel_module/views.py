@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 
 from account_module.models import User
 from django.http import HttpRequest, JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 
 from order_module.models import Order, OrderDetail

@@ -1,8 +1,7 @@
-from itertools import product
 from django.db.models import Count
 from django.http import HttpRequest
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic.base import TemplateView, View
+from django.shortcuts import render, redirect
+from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
 from utils.conventors import group_list
 from site_module.models import SiteBanner
@@ -16,13 +15,6 @@ class ProductListView(ListView):
     context_object_name = "products"
     ordering = ["price"]
     paginate_by = 12
-
-    # def get_queryset(self):
-    #     query = super(ProductListView, self).get_queryset()
-    #     category_name = self.kwargs.get('cat')
-    #     if category_name is not None:
-    #         query = query.filter(category__url_title__iexact=category_name)
-    #     return query
 
     # برای فیلتر قیمت
     def get_context_data(self, **kwargs):
@@ -43,7 +35,7 @@ class ProductListView(ListView):
         query = super(ProductListView, self).get_queryset()
         category_name = self.kwargs.get("cat")
         brand_name = self.kwargs.get("brand")
-        request: HttpRequest = self.request
+        # request: HttpRequest = self.request
         start_price = self.request.GET.get("start_price")
         end_price = self.request.GET.get("end_price")
 
@@ -105,9 +97,9 @@ class ProductDetailView(DetailView):
 class AddProductFavorite(View):
     def post(self, request):
         product_id = request.POST["product_id"]
-        product = Product.objects.get(pk=product_id)
+        product1 = Product.objects.get(pk=product_id)
         request.session["product_favorites"] = product_id
-        return redirect(product.get_absolute_url())
+        return redirect(product1.get_absolute_url())
 
 
 def product_categories_component(request: HttpRequest):
