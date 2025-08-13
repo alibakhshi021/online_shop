@@ -1,13 +1,16 @@
 from . import views
 from rest_framework.routers import DefaultRouter
 
+app_name = "api-v1" 
+
+
 router = DefaultRouter()
 router.register("post", views.ProductModelViewSet, basename="post")
 router.register("category", views.CategoryModelViewSet, basename="category")
 urlpatterns = router.urls
 
 
-app_name = "api-v1"
+
 
 # urlpatterns = [
 #     # path('post/', views.ProductList.as_view(), name='product_list_api'),
