@@ -70,11 +70,13 @@ class LoginAPIView(APIView):
 
         token, _ = Token.objects.get_or_create(user=user)
 
-        return Response({
-            "token": token.key,
-            "user_id": user.id,
-            "email": user.email,
-        })
+        return Response(
+            {
+                "token": token.key,
+                "user_id": user.id,
+                "email": user.email,
+            }
+        )
 
 
 class LogoutAPIView(APIView):
@@ -105,19 +107,18 @@ class ChangePassApiView(generics.GenericAPIView):
             if not self.object.check_password(serializer.data.get("old_password")):
                 return Response(
                     {"old_password": ["Wrong password."]},
-                    status=status.HTTP_400_BAD_REQUEST
+                    status=status.HTTP_400_BAD_REQUEST,
                 )
 
             self.object.set_password(serializer.data.get("new_password"))
             self.object.save()
 
             return Response(
-                {"detail": "password change successful"},
-                status=status.HTTP_200_OK
+                {"detail": "password change successful"}, status=status.HTTP_200_OK
             )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 class ProfileApiView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileApiSerializer
@@ -135,8 +136,7 @@ class TestEmailView(APIView):
         user_obj = get_object_or_404(User, email=self.email)
         token = self.get_token_for_user(user_obj)
         email_obj = EmailMessage(
-            "email/hello.tpl", {"token": token},
-            "admin@admin.com", to=[self.email]
+            "email/hello.tpl", {"token": token}, "admin@admin.com", to=[self.email]
         )
         EmailTreading(email_obj).start()
         return Response("Test-Email")
@@ -154,13 +154,11 @@ class ActivationApiView(APIView):
             user_id = token_data.get("user_id")
         except jwt.ExpiredSignatureError:
             return Response(
-                {"detail": "token has been expired"},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": "token has been expired"}, status=status.HTTP_400_BAD_REQUEST
             )
         except DecodeError:
             return Response(
-                {"detail": "token is not valid"},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": "token is not valid"}, status=status.HTTP_400_BAD_REQUEST
             )
 
         user_obj = User.objects.get(pk=user_id)
@@ -185,13 +183,11 @@ class ActivationResendApiView(generics.GenericAPIView):
         user_obj = serializer.validated_data["user"]
         token = self.get_token_for_user(user_obj)
         email_obj = EmailMessage(
-            "email/hello.tpl", {"token": token},
-            "admin@admin.com", to=["email"]
+            "email/hello.tpl", {"token": token}, "admin@admin.com", to=["email"]
         )
         EmailTreading(email_obj).start()
         return Response(
-            {"detail": "user activation resend successfully"},
-            status=status.HTTP_200_OK
+            {"detail": "user activation resend successfully"}, status=status.HTTP_200_OK
         )
 
     def get_token_for_user(self, user):

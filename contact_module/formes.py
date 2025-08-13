@@ -22,4 +22,3 @@ class ContactUsModelForm(forms.ModelForm):
                 "required": "نام و نام خانوادگی اجباری می باشد. لطفا وارد کنید"
             }
         }
-
