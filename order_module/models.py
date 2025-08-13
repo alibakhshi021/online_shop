@@ -5,10 +5,11 @@ from product_module.models import Product
 
 # Create your models here.
 
+
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='کاربر')
-    is_paid = models.BooleanField(verbose_name='نهایی شده/نشده')
-    payment_date = models.DateField(null=True, blank=True, verbose_name='تاریخ پرداخت')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="کاربر")
+    is_paid = models.BooleanField(verbose_name="نهایی شده/نشده")
+    payment_date = models.DateField(null=True, blank=True, verbose_name="تاریخ پرداخت")
 
     def __str__(self):
         return str(self.user)
@@ -24,19 +25,21 @@ class Order(models.Model):
         return total_amount
 
     class Meta:
-        verbose_name = 'سبد خرید'
-        verbose_name_plural = 'سبدهای خرید کاربران'
+        verbose_name = "سبد خرید"
+        verbose_name_plural = "سبدهای خرید کاربران"
 
 
 class OrderDetail(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='سبد خرید')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول')
-    final_price = models.IntegerField(null=True, blank=True, verbose_name='قیمت نهایی تکی محصول')
-    count = models.IntegerField(verbose_name='تعداد')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name="سبد خرید")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="محصول")
+    final_price = models.IntegerField(
+        null=True, blank=True, verbose_name="قیمت نهایی تکی محصول"
+    )
+    count = models.IntegerField(verbose_name="تعداد")
 
     def __str__(self):
         return str(self.order)
 
     class Meta:
-        verbose_name = 'جزییات سبد خرید'
-        verbose_name_plural = 'لیست جزییات سبدهای خرید'
+        verbose_name = "جزییات سبد خرید"
+        verbose_name_plural = "لیست جزییات سبدهای خرید"

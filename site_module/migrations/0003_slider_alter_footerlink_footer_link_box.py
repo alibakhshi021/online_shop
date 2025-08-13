@@ -7,28 +7,49 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('site_module', '0002_footerlinkbox_alter_sitesetting_address_and_more'),
+        ("site_module", "0002_footerlinkbox_alter_sitesetting_address_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Slider',
+            name="Slider",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, verbose_name='عنوان')),
-                ('url', models.CharField(max_length=100, verbose_name='لینک')),
-                ('url_title', models.CharField(max_length=100, verbose_name='عنوان لینک')),
-                ('description', models.TextField(verbose_name='اوضیحات اسلایدر')),
-                ('image', models.ImageField(upload_to='images/sliders', verbose_name='تصویر اسلایدر')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, verbose_name="عنوان")),
+                ("url", models.CharField(max_length=100, verbose_name="لینک")),
+                (
+                    "url_title",
+                    models.CharField(max_length=100, verbose_name="عنوان لینک"),
+                ),
+                ("description", models.TextField(verbose_name="اوضیحات اسلایدر")),
+                (
+                    "image",
+                    models.ImageField(
+                        upload_to="images/sliders", verbose_name="تصویر اسلایدر"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'اسلایدر',
-                'verbose_name_plural': 'اسلایدر ها',
+                "verbose_name": "اسلایدر",
+                "verbose_name_plural": "اسلایدر ها",
             },
         ),
         migrations.AlterField(
-            model_name='footerlink',
-            name='footer_link_box',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='footerlink_set', to='site_module.footerlinkbox', verbose_name='دسته بتدی'),
+            model_name="footerlink",
+            name="footer_link_box",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="footerlink_set",
+                to="site_module.footerlinkbox",
+                verbose_name="دسته بتدی",
+            ),
         ),
     ]
